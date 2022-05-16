@@ -21,6 +21,12 @@ class UserService{
   async update(id, entity){
     if(!id) errorHelper('id must be sent', 400);
 
+    return await UserRepository.update(id, entity);
+  }
+
+  async delete(id){
+    if(!id) errorHelper('id must be sent', 400);
+
     return await UserRepository.delete(id);
   }
   
@@ -29,4 +35,4 @@ class UserService{
   }
 }
 
-module.exports = UserService;
+module.exports = new UserService;

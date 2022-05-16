@@ -2,8 +2,11 @@ const {model, Schema} = require('mongoose');
 
 const UserSchema = new Schema({
   name: {type: String, required: true},
-  username: {type: String, required: true},
+  username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
+  profile: {type: String},
+  age: {type: Number, required: true},
+  email: {type: String, required: true, unique: true}
 })
 
 UserSchema.methods.comparePassword = function(password){

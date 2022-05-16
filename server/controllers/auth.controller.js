@@ -10,9 +10,10 @@ class AuthController{
 
   async signIn(req, res){
     const {body} = req;
+    console.log('body', body);
     const creds = await AuthService.signIn(body);
     return res.send(creds);
   }
 }
 
-module.exports = AuthController;
+module.exports = new AuthController;

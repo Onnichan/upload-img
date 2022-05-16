@@ -3,7 +3,9 @@ const UserService = require('../services/user.service');
 class UserController{
 
   async get(req, res){
+    console.log(req.params);
     const {userId} = req.params;
+    console.log(userId);
     const user = await UserService.get(userId);
     return res.send(user);
   }
@@ -19,11 +21,11 @@ class UserController{
     return res.send(updateUser);
   }
 
-  async delete(id){
+  async delete(req, res){
     const {userId} = req.params;
     const deleteUser = await UserService.delete(userId);
     return res.send(deleteUser);
   }
 }
 
-module.exports = UserController;
+module.exports = new UserController;
