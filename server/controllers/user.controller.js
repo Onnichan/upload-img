@@ -10,10 +10,6 @@ class UserController{
     return res.send(user);
   }
 
-  // async create(entity){
-  //   return await UserModel.create(entity);
-  // }
-
   async update(req, res){
     const {body} = req;
     const {userId} = req.params;

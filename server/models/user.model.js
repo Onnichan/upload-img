@@ -5,7 +5,6 @@ const UserSchema = new Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   profile: {type: String},
-  age: {type: Number, required: true},
   email: {type: String, required: true, unique: true}
 })
 
@@ -13,4 +12,5 @@ UserSchema.methods.comparePassword = function(password){
   return this.password === password ? true : false;
 }
 
-module.exports = model('user', UserSchema);
+module.exports = model('users', UserSchema);
+

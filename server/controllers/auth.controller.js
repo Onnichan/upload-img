@@ -1,10 +1,12 @@
 const AuthService = require('../services/auth.service');
 
-class AuthController{
 
-  async signUp(req, res){
-    const {body} = req;
-    const createdUser = await AuthService.signUp(body);
+class AuthController{
+  
+  signUp = async (req, res) => {
+ 
+    let {body, files} = req;
+    const createdUser = await AuthService.signUp(body, files);
     return res.status(201).send(createdUser);
   }
 

@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
 const helmet = require('helmet');
 const compression = require('compression');
 const UserRoutes = require('./user.routes');
@@ -14,6 +15,7 @@ module.exports = function(){
 
   apiRoutes 
     .use(express.json())
+    .use(fileUpload())
     .use(cors())
     .use(helmet())
     .use(compression())

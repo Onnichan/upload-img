@@ -3,12 +3,13 @@ const UserService = require('../services/user.service');
 
 class AuthService{
 
-  async signUp(user){
+  async signUp(user, files){
     const {username} = user;
+    console.log(user);
     const userExist = await UserService.getUserByUsername(username);
     if(userExist) errorHelper('User already exist', 401);
 
-    return await UserService.create(user);
+    return await UserService.create(user, files);
   }
 
   async signIn(user){
